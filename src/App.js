@@ -2,6 +2,8 @@
 import HeroSection from "./components/HeroSection/HeroSection";
 import MenSection from "./components/Men/MenSection";
 import Navbar from "./components/Navbar/Navbar";
+import WomenSection from "./components/Women/WomenSection";
+
 
 
 
@@ -9,8 +11,9 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <>
-     <Navbar />
-     <HeroSection />
+      <Navbar />
+      <HeroSection />
+      <WomenSection />
       <MenSection />
     </>
   );
