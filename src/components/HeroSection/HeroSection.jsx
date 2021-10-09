@@ -6,8 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 // @Actions
 import { fetchSlides } from '../../actions/slides';
 
-// @Url's
-import { server } from '../../urls/urls';
+// @Components
+import Item from './Item';
+
+// @Packages
+import Carousel from "react-material-ui-carousel";
+
+
 
 const HeroSection = () => {
 
@@ -39,21 +44,18 @@ const HeroSection = () => {
     }
 
     return (
-        <>
-            <div className="w-full carousel">
-                {
-                    data.map((url, i) => (
-                        <div key={i} id={`slide-${i}`} className="relative w-full carousel-item">
-                            <img src={`${server}${url}`} className="w-full" alt='img' />
-                            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                <a href={`/carousel#slide-${i - 1}`} className="btn btn-circle">❮</a>
-                                <a href={`/carousel#slide-${i + 1}`} className="btn btn-circle">❯</a>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </>
+      <>
+        <Carousel
+          animation="slide"
+          navButtonsAlwaysVisible={true}
+          timeout={1700}
+          interval={7000}
+        >
+          {data.map((url, i) => (
+            <Item key={i} url={url} />
+          ))}
+        </Carousel>
+      </>
     );
 };
 
